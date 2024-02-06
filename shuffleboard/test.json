@@ -1,0 +1,181 @@
+{
+  "tabPane": [
+    {
+      "title": "SmartDashboard",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "SmartDashboard/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "2,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/X",
+              "_title": "X",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "3,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Y",
+              "_title": "Y",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "2,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PPSwerveControllerCommand/xErrorMeters",
+              "_title": "PP X Error",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "3,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PPSwerveControllerCommand/yErrorMeters",
+              "_title": "PP Y Error",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "0,1": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PPSwerveControllerCommand/rotationErrorDegrees",
+              "_title": "PP Heading Error",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "4,0": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "ComboBox Chooser",
+              "_source0": "network_table:///SmartDashboard/Auto Routines",
+              "_title": "Auto Routines",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "0,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Gyro Heading",
+              "_title": "Gyro Heading",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Pose Rotation",
+              "_title": "Pose Rotation",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Arm Pivot Deg",
+              "_title": "Arm Pivot Deg",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Arm Pivot Rad",
+              "_title": "Arm Pivot Rad",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Match",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "SmartDashboard/Match",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Network Table Tree",
+              "_source0": "network_table:///CameraPublisher/photonvision_Port_1181_MJPEG_Server",
+              "_title": "CameraPublisher/photonvision_Port_1181_MJPEG_Server",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          }
+        }
+      }
+    }
+  ],
+  "windowGeometry": {
+    "x": -8.0,
+    "y": -8.0,
+    "width": 1382.0,
+    "height": 744.0
+  }
+}
