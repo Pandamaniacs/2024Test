@@ -120,6 +120,9 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
         m_drivingSparkMax.burnFlash();
         m_turningSparkMax.burnFlash();
 
+        m_drivingSparkMax.clearFaults();
+        m_turningSparkMax.clearFaults();
+
         m_chassisAngularOffset = absoluteEncoderOffset;        
         // m_chassisAngularOffset = chassisAngularOffset;
 

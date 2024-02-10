@@ -10,6 +10,13 @@
       "/SmartDashboard/Path Chooser": "String Chooser",
       "/SmartDashboard/Run Chosen Path": "Command",
       "/SmartDashboard/VisionSystemSim-VisionSim/Sim Field": "Field2d"
+    },
+    "windows": {
+      "/SmartDashboard/Auto Chooser": {
+        "window": {
+          "visible": true
+        }
+      }
     }
   },
   "NetworkTables Info": {

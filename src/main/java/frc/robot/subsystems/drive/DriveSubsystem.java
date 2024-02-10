@@ -82,7 +82,7 @@ public class DriveSubsystem extends SubsystemBase {
                         DriveConstants.kFrontLeftDrivingCanId,
                         DriveConstants.kFrontLeftTurningCanId,
                         0,
-                        -6.807,
+                        46.301,
                         DriveConstants.kFrontLeftChassisAngularOffset, 
                         true);
 
@@ -90,7 +90,7 @@ public class DriveSubsystem extends SubsystemBase {
                         DriveConstants.kFrontRightDrivingCanId,
                         DriveConstants.kFrontRightTurningCanId,
                         1,
-                        0.0,
+                        -0.150,
                         DriveConstants.kFrontRightChassisAngularOffset, 
                         true);
 
@@ -98,7 +98,7 @@ public class DriveSubsystem extends SubsystemBase {
                         DriveConstants.kRearLeftDrivingCanId,
                         DriveConstants.kRearLeftTurningCanId,
                         2,
-                        0.299,
+                        -0.299,
                         DriveConstants.kBackLeftChassisAngularOffset, 
                         false);
 
@@ -106,7 +106,7 @@ public class DriveSubsystem extends SubsystemBase {
                         DriveConstants.kRearRightDrivingCanId,
                         DriveConstants.kRearRightTurningCanId,
                         3,
-                        -0.075,
+                        -2.618,
                         DriveConstants.kBackRightChassisAngularOffset, 
                         false);
 
