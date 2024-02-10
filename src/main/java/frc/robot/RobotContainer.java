@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.OIConstants;
 import frc.robot.pathplanner.PathPlannerUtils;
 import frc.robot.subsystems.drive.DriveSubsystem;
+import frc.robot.subsystems.shooter.ShooterSubsystem;
 import frc.utils.CommandCustomController;
 
 /*
@@ -28,6 +29,8 @@ public class RobotContainer {
 
     // The robot's subsystems
     public final DriveSubsystem m_robotDrive = new DriveSubsystem();
+
+    public final ShooterSubsystem m_shooter = new ShooterSubsystem();
 
     final CommandCustomController m_driverController = new CommandCustomController(
             OIConstants.kDriverControllerPort);
@@ -78,5 +81,8 @@ public class RobotContainer {
                 .whileTrue(new RunCommand(
                         () -> m_robotDrive.setCross(),
                         m_robotDrive));
+        m_driverController.a()
+                .whileTrue(m_shooter.runVelocityCommand())
+                .whileFalse(m_shooter.stopVelocityCommand());
     }
 }

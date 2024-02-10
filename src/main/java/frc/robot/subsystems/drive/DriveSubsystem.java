@@ -83,28 +83,32 @@ public class DriveSubsystem extends SubsystemBase {
                         DriveConstants.kFrontLeftTurningCanId,
                         0,
                         -6.807,
-                        DriveConstants.kFrontLeftChassisAngularOffset);
+                        DriveConstants.kFrontLeftChassisAngularOffset, 
+                        true);
 
                 m_modules[1] = new SwerveModuleSparkMax(
                         DriveConstants.kFrontRightDrivingCanId,
                         DriveConstants.kFrontRightTurningCanId,
                         1,
                         0.0,
-                        DriveConstants.kFrontRightChassisAngularOffset);
+                        DriveConstants.kFrontRightChassisAngularOffset, 
+                        true);
 
                 m_modules[2] = new SwerveModuleSparkMax(
                         DriveConstants.kRearLeftDrivingCanId,
                         DriveConstants.kRearLeftTurningCanId,
                         2,
                         0.299,
-                        DriveConstants.kBackLeftChassisAngularOffset);
+                        DriveConstants.kBackLeftChassisAngularOffset, 
+                        false);
 
                 m_modules[3] = new SwerveModuleSparkMax(
                         DriveConstants.kRearRightDrivingCanId,
                         DriveConstants.kRearRightTurningCanId,
                         3,
                         -0.075,
-                        DriveConstants.kBackRightChassisAngularOffset);
+                        DriveConstants.kBackRightChassisAngularOffset, 
+                        false);
 
                 m_gyro = new SwerveGyroNavX();
 

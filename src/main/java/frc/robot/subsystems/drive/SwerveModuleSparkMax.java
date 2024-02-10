@@ -42,7 +42,7 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
      * Encoder.
      */
     public SwerveModuleSparkMax(int drivingCANId, int turningCANId, int analogInput, double absoluteEncoderOffset,
-            double chassisAngularOffset) {
+            double chassisAngularOffset, boolean isInverted) {
         m_drivingSparkMax = new CANSparkMax(drivingCANId, MotorType.kBrushless);
         m_turningSparkMax = new CANSparkMax(turningCANId, MotorType.kBrushless);
 
@@ -70,6 +70,9 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
         // APIs.
         m_turningEncoder.setPositionConversionFactor(ModuleConstants.kTurningEncoderPositionFactor);
         m_turningEncoder.setVelocityConversionFactor(ModuleConstants.kTurningEncoderVelocityFactor);
+
+        // Invert?
+        m_drivingSparkMax.setInverted(isInverted);
 
         // Invert the turning encoder, since the output shaft rotates in the opposite
         // direction of
@@ -117,7 +120,9 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
         m_drivingSparkMax.burnFlash();
         m_turningSparkMax.burnFlash();
 
-        m_chassisAngularOffset = chassisAngularOffset;
+        m_chassisAngularOffset = absoluteEncoderOffset;        
+        // m_chassisAngularOffset = chassisAngularOffset;
+
         m_desiredState.angle = new Rotation2d(m_turningEncoder.getPosition());
         m_drivingEncoder.setPosition(0);
     }

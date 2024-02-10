@@ -98,6 +98,11 @@ public final class Constants {
         public static final int kFrontRightTurningCanId = 6;
         public static final int kRearRightTurningCanId = 8;
 
+        public static final int frontRightEncoder = 0;
+        public static final int frontLeftEncoder = 2;
+        public static final int backRightEncoder = 1;
+        public static final int backLeftEncoder = 3;
+
         public static final boolean kGyroReversed = false;
         public static final int kGyroCanId = 1;
     }
@@ -136,14 +141,14 @@ public final class Constants {
         public static final double kTurningEncoderPositionPIDMinInput = 0; // radians
         public static final double kTurningEncoderPositionPIDMaxInput = kTurningEncoderPositionFactor; // radians
 
-        public static final double kDrivingP = 0.04;
+        public static final double kDrivingP = 0.01;
         public static final double kDrivingI = 0;
         public static final double kDrivingD = 0;
         public static final double kDrivingFF = 1 / kDriveWheelFreeSpeedRps;
         public static final double kDrivingMinOutput = -1;
         public static final double kDrivingMaxOutput = 1;
 
-        public static final double kTurningP = 0.04;
+        public static final double kTurningP = 0.02;
         public static final double kTurningI = 0;
         public static final double kTurningD = 0;
         public static final double kTurningFF = 0;
