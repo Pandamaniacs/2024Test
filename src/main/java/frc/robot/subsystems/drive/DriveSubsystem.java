@@ -21,6 +21,7 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.util.WPIUtilJNI;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.AdvantageKitConstants;
 import frc.robot.Constants.DriveConstants;
@@ -82,15 +83,15 @@ public class DriveSubsystem extends SubsystemBase {
                         DriveConstants.kFrontLeftDrivingCanId,
                         DriveConstants.kFrontLeftTurningCanId,
                         0,
-                        46.301,
+                        0,
                         DriveConstants.kFrontLeftChassisAngularOffset, 
-                        true);
+                        false);
 
                 m_modules[1] = new SwerveModuleSparkMax(
                         DriveConstants.kFrontRightDrivingCanId,
                         DriveConstants.kFrontRightTurningCanId,
                         1,
-                        -0.150,
+                        0,
                         DriveConstants.kFrontRightChassisAngularOffset, 
                         true);
 
@@ -98,17 +99,17 @@ public class DriveSubsystem extends SubsystemBase {
                         DriveConstants.kRearLeftDrivingCanId,
                         DriveConstants.kRearLeftTurningCanId,
                         2,
-                        -0.299,
+                        0,
                         DriveConstants.kBackLeftChassisAngularOffset, 
-                        false);
+                        true);
 
                 m_modules[3] = new SwerveModuleSparkMax(
                         DriveConstants.kRearRightDrivingCanId,
                         DriveConstants.kRearRightTurningCanId,
                         3,
-                        -2.618,
+                        0,
                         DriveConstants.kBackRightChassisAngularOffset, 
-                        false);
+                        true);
 
                 m_gyro = new SwerveGyroNavX();
 
@@ -165,6 +166,7 @@ public class DriveSubsystem extends SubsystemBase {
     public void periodic() {
         m_gyro.updateInputs(m_gyroInputs);
         Logger.processInputs("Drive/Gyro", m_gyroInputs);
+        
 
         for (int i = 0; i < m_modules.length; i++) {
             m_modules[i].updateInputs(m_moduleInputs[i]);
@@ -357,7 +359,7 @@ public class DriveSubsystem extends SubsystemBase {
         return m_gyroInputs.yawVelocityRadPerSec;
     }
 
-    public void rotateInPlace(double percentOutput) {
+ /*    public void rotateInPlace(double percentOutput) {
         drive(0, 0, percentOutput, true, true);
-    }
+    } */
 }
