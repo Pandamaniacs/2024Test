@@ -129,7 +129,7 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
         m_chassisAngularOffset = absoluteEncoderOffset;        
        //  m_chassisAngularOffset = chassisAngularOffset;
 
-        m_desiredState.angle = new Rotation2d(m_turningEncoder.getPosition());
+        m_desiredState.angle = new Rotation2d(m_turnAbsoluteEncoder.getValue());
         m_drivingEncoder.setPosition(0);
 
         Logger.recordOutput("Odometry/Robot/analog encoder", analogInput); 
@@ -139,8 +139,8 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
         inputs.drivePositionMeters = m_drivingEncoder.getPosition();
         inputs.driveVelocityMetersPerSec = m_drivingEncoder.getVelocity();
 
-        // inputs.turnAbsolutePositionRad = m_turningEncoder.getPosition();
-        inputs.turnAngularOffsetPositionRad = m_turningEncoder.getPosition() - m_chassisAngularOffset;
+         inputs.turnAbsolutePositionRad = m_turningEncoder.getPosition();
+      //  inputs.turnAngularOffsetPositionRad = m_turningEncoder.getPosition() - m_chassisAngularOffset;
         // inputs.turnVelocityRadPerSec = m_turningEncoder.getVelocity();
 
         inputs.turnAbsolutePositionRad = MathUtil.angleModulus(
@@ -183,5 +183,6 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
                 CANSparkMax.ControlType.kPosition);
 
         m_desiredState = desiredState;
+        
     }
 }
