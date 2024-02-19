@@ -68,8 +68,8 @@ public class DriveSubsystem extends SubsystemBase {
                 () -> DriveConstants.kDriveKinematics.toChassisSpeeds(getModuleStates()),
                 this::runVelocity,
                 new HolonomicPathFollowerConfig(
-                        new PIDConstants(5.0, 0.0, 0.0), // Translation PID constants
-                        new PIDConstants(5.0, 0.0, 0.0), // Rotation PID constants
+                        new PIDConstants(.45, 0.0, 0.0), // Translation PID constants
+                        new PIDConstants(.25, 0.0, 0.0), // Rotation PID constants
                         DriveConstants.kMaxSpeedMetersPerSecond,
                         DriveConstants.kWheelBase / 2,
                         new ReplanningConfig()),
@@ -83,7 +83,7 @@ public class DriveSubsystem extends SubsystemBase {
                         DriveConstants.kFrontLeftDrivingCanId,
                         DriveConstants.kFrontLeftTurningCanId,
                         0,
-                        0,
+                        1.64,
                         DriveConstants.kFrontLeftChassisAngularOffset, 
                         false);
 
@@ -91,15 +91,15 @@ public class DriveSubsystem extends SubsystemBase {
                         DriveConstants.kFrontRightDrivingCanId,
                         DriveConstants.kFrontRightTurningCanId,
                         1,
-                        0,
+                        1.35,
                         DriveConstants.kFrontRightChassisAngularOffset, 
-                        true);
+                        false);
 
                 m_modules[2] = new SwerveModuleSparkMax(
                         DriveConstants.kRearLeftDrivingCanId,
                         DriveConstants.kRearLeftTurningCanId,
                         2,
-                        0,
+                        2.57,
                         DriveConstants.kBackLeftChassisAngularOffset, 
                         true);
 
@@ -107,7 +107,7 @@ public class DriveSubsystem extends SubsystemBase {
                         DriveConstants.kRearRightDrivingCanId,
                         DriveConstants.kRearRightTurningCanId,
                         3,
-                        0,
+                        1.19,
                         DriveConstants.kBackRightChassisAngularOffset, 
                         true);
 
