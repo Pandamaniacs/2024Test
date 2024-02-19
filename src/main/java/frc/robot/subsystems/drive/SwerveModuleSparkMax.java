@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems.drive;
 
+import org.littletonrobotics.junction.Logger;
+
 import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
@@ -46,6 +48,7 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
         m_drivingSparkMax = new CANSparkMax(drivingCANId, MotorType.kBrushless);
         m_turningSparkMax = new CANSparkMax(turningCANId, MotorType.kBrushless);
 
+     //   print = System.out.println(analogInput);
         // Factory reset, so we get the SPARKS MAX to a known state before configuring
         // them. This is useful in case a SPARK MAX is swapped out.
         m_drivingSparkMax.restoreFactoryDefaults();
@@ -86,7 +89,7 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
         // controller to go through 0 to get to the setpoint i.e. going from 350 degrees
         // to 10 degrees will go through 0 rather than the other direction which is a
         // longer route.
-        m_turningPIDController.setPositionPIDWrappingEnabled(true);
+      //  m_turningPIDController.setPositionPIDWrappingEnabled(true);
         m_turningPIDController.setPositionPIDWrappingMinInput(ModuleConstants.kTurningEncoderPositionPIDMinInput);
         m_turningPIDController.setPositionPIDWrappingMaxInput(ModuleConstants.kTurningEncoderPositionPIDMaxInput);
 
@@ -124,18 +127,20 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
         m_turningSparkMax.clearFaults();
 
         m_chassisAngularOffset = absoluteEncoderOffset;        
-        // m_chassisAngularOffset = chassisAngularOffset;
+       //  m_chassisAngularOffset = chassisAngularOffset;
 
-        m_desiredState.angle = new Rotation2d(m_turningEncoder.getPosition());
+        m_desiredState.angle = new Rotation2d(m_turnAbsoluteEncoder.getValue());
         m_drivingEncoder.setPosition(0);
+
+        Logger.recordOutput("Odometry/Robot/analog encoder", analogInput); 
     }
 
     public void updateInputs(SwerveModuleIOInputs inputs) {
         inputs.drivePositionMeters = m_drivingEncoder.getPosition();
         inputs.driveVelocityMetersPerSec = m_drivingEncoder.getVelocity();
 
-        // inputs.turnAbsolutePositionRad = m_turningEncoder.getPosition();
-        inputs.turnAngularOffsetPositionRad = m_turningEncoder.getPosition() - m_chassisAngularOffset;
+         inputs.turnAbsolutePositionRad = m_turningEncoder.getPosition();
+      //  inputs.turnAngularOffsetPositionRad = m_turningEncoder.getPosition() - m_chassisAngularOffset;
         // inputs.turnVelocityRadPerSec = m_turningEncoder.getVelocity();
 
         inputs.turnAbsolutePositionRad = MathUtil.angleModulus(
@@ -178,5 +183,6 @@ public class SwerveModuleSparkMax implements SwerveModuleIO {
                 CANSparkMax.ControlType.kPosition);
 
         m_desiredState = desiredState;
+        
     }
 }
